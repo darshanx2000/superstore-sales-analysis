@@ -1,0 +1,18 @@
+## 🚀 How to Run the Project
+
+1. Clone the repo:  
+   `git clone https://github.com/yourusername/superstore-sales-analysis.git`
+
+2. Open the notebooks in `notebooks/` and run EDA code using Visual studio code .
+
+3. Explore SQL queries in `sql/` if you have a SQL database set up.
+
+4. Open the Excel dashboard from `dashboards/` for visual insights.
+
+---
+
+## 📬 Contact
+
+For any questions or collaboration ideas:  
+Darshan Maheshwari 📞 9929929298 LinkedIn
+
