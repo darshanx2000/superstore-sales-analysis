@@ -1,0 +1,40 @@
+# 📦 Superstore Dataset - Data Cleaning Script
+
+import pandas as pd
+
+# Load dataset with encoding fix
+file_path = 'Sample - Superstore.csv'
+df = pd.read_csv(/Users/tanmaysamdani/Desktop/Sample - Superstore.csv, encoding='ISO-8859-1')
+
+# Initial inspection
+print("\n--- Dataset Overview ---")
+print(df.info())
+print("\n--- First 5 Rows ---")
+print(df.head())
+
+# Check for nulls
+print("\n--- Null Values ---")
+print(df.isnull().sum())
+
+# Drop unnecessary column
+df.drop(columns=['Row ID'], inplace=True)
+
+# Convert date columns to datetime format
+df['Order Date'] = pd.to_datetime(df['Order Date'])
+df['Ship Date'] = pd.to_datetime(df['Ship Date'])
+
+# Create time-based features
+df['Order Year'] = df['Order Date'].dt.year
+df['Order Month'] = df['Order Date'].dt.month
+df['Order Month Name'] = df['Order Date'].dt.strftime('%B')
+
+# Calculate Profit Margin
+df['Profit Margin (%)'] = (df['Profit'] / df['Sales']) * 100
+
+# Final check
+print("\n--- Cleaned Data Preview ---")
+print(df.head())
+
+# Optional: save cleaned data to new file
+df.to_csv('cleaned_superstore.csv', index=False)
+print("\n✅ Cleaned data saved as 'cleaned_superstore.csv'")
