@@ -1,1 +1,33 @@
+Total Sales by Category
+SELECT Category, SUM(Sales) AS Total_Sales
+FROM superstore
+GROUP BY Category
+ORDER BY Total_Sales DESC;
 
+ 
+Top 10 Customers by Sales
+SELECT "Customer Name", SUM(Sales) AS Total_Sales
+FROM superstore
+GROUP BY "Customer Name"
+ORDER BY Total_Sales DESC
+LIMIT 10;
+
+Monthly Sales Trend
+SELECT DATE_TRUNC('month', TO_DATE("Order Date", 'MM/DD/YYYY')) AS Month, 
+       SUM(Sales) AS Monthly_Sales
+FROM superstore
+GROUP BY Month
+ORDER BY Month;
+
+Profit by Region
+SELECT Region, SUM(Profit) AS Total_Profit
+FROM superstore
+GROUP BY Region
+ORDER BY Total_Profit DESC;
+
+
+Sales vs. Profit by Segment
+
+SELECT Segment, SUM(Sales) AS Total_Sales, SUM(Profit) AS Total_Profit
+FROM superstore
+GROUP BY Segment;
